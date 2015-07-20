@@ -1,0 +1,419 @@
+{
+    "operations": {
+        "abstract.feed": {
+            "httpMethod": "GET",
+            "responseClass": "FeedResponse",
+            "responseType": "model",
+            "data": {"iteratorClass": "FeedIterator"},
+            "parameters": {
+                "pageSize": {"location": "query"},
+                "noEarlierThan": {"location": "query"},
+                "noLaterThan": {"location": "query"},
+                "modifiedNoEarlierThan": {"location": "query"},
+                "modifiedNoLaterThan": {"location": "query"}
+
+            }
+        },
+        "abstract.update": {
+            "uri": "{+uri}",
+            "httpMethod": "PUT",
+            "responseClass": "GenericOutput",
+            "additionalParameters": false,
+            "parameters": {
+                "uri": {
+                    "location": "uri",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "abstract.delete": {
+            "uri": "{+uri}",
+            "httpMethod": "DELETE",
+            "responseClass": "GenericOutput",
+            "parameters": {
+                "uri": {
+                    "location": "uri",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "abstract.DiabetesMeasurementSet": {
+            "parameters": {
+                "fasting_plasma_glucose_test": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "oral_glucose_tolerance_test": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "random_plasma_glucose_test": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "hemoglobin_a1c": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in g/dL"
+                },
+                "insulin": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in U"
+                },
+                "c_peptide": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in ng/mL"
+                },
+                "triglyceride": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                }
+            }
+        },
+        "abstract.FitnessActivity": {
+            "parameters": {
+                "type": {
+                    "type": "string",
+                    "location": "json",
+                    "enum": ["Running", "Cycling", "Mountain Biking", "Walking", "Hiking", "Downhill Skiing", "Cross-Country Skiing", "Snowboarding", "Skating", "Swimming", "Wheelchair", "Rowing", "Elliptical", "Other"]
+                },
+                "secondary_type": {
+                    "type": "string",
+                    "location": "json"
+                },
+                "equipment": {
+                    "type": "string",
+                    "location": "json",
+                    "enum": ["None", "Treadmill", "Stationary Bike", "Elliptical", "Row Machine"]
+                },
+                "start_time": {
+                    "type": "string",
+                    "location": "json"
+                },
+                "total_distance": {
+                    "type": "number",
+                    "location": "json"
+                },
+                "duration": {
+                    "type": "number",
+                    "location": "json"
+                },
+                "average_heart_rate": {
+                    "type": "integer",
+                    "location": "json"
+                },
+                "heart_rate": {
+                    "type": "string",
+                    "location": "json"
+                },
+                "total_calories": {
+                    "type": "number",
+                    "location": "json"
+                },
+                "notes": {
+                    "type": "string",
+                    "location": "json"
+                },
+                "path": {
+                    "type": "number",
+                    "location": "json"
+                },
+                "post_to_facebook": {
+                    "type": "boolean",
+                    "location": "json"
+                },
+                "post_to_twitter": {
+                    "type": "boolean",
+                    "location": "json"
+                },
+                "detect_pauses": {
+                    "type": "boolean",
+                    "location": "json"
+                }
+            }
+        },
+        "abstract.GeneralMeasurementSet": {
+            "parameters": {
+                "systolic": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mmHg"
+                },
+                "diastolic": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mmHg"
+                },
+                "total_cholesterol": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "hdl": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "ldl": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "vitamin_d": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in ng/mL"
+                },
+                "hscrp": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/L"
+                },
+                "crp": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/L"
+                },
+                "tsh": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mlU/L"
+                },
+                "uric_acid": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "resting_heartrate": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in bpm"
+                },
+                "blood_calcium": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "blood_magnesium": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "creatine_kinase": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in U/L"
+                },
+                "blood_vitamin_b12": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in pg/mL"
+                },
+                "blood_folic_acid": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in ng/mL"
+                },
+                "ferritin": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in ng/mL"
+                },
+                "il6": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "testosterone": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "blood_potassium": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "blood_sodium": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg/dL"
+                },
+                "blood_zinc": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mug/dL"
+                },
+                "blood_chromium": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mug/dL"
+                },
+                "white_cell_count": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in nmol/muL"
+                }
+            }
+        },
+        "abstract.StrengthTrainingActivity": {
+            "parameters": {
+                "start_time": {
+                    "type": "string",
+                    "location": "json",
+                    "description": "The starting time for the activity (e.g., Sat, 1 Jan 2011 00:00:00)"
+                },
+                "notes": {
+                    "type": "string",
+                    "location": "json",
+                    "description": "Any notes that the user has associated with the activity",
+                    "maxLength": 1024
+                },
+                "total_calories": {
+                    "type": "number",
+                    "location": "json",
+                    "description": "The total calories burned"
+                },
+                "exercises": {
+                    "type": "array",
+                    "location": "json",
+                    "description": "The exercises performed during this strength training activity",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "Exercise"
+                    }
+                }
+            }
+        },
+        "abstract.BackgroundActivitySet": {
+            "parameters": {
+                "calories_burned": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity (omitted if not available)"
+                },
+                "steps": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity (omitted if not available)"
+                }
+            }
+        },
+        "abstract.NutritionSet": {
+            "parameters": {
+                "calories": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity"
+                },
+                "carbohydrates": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in g"
+                },
+                "fat": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in g"
+                },
+                "fiber": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in g"
+                },
+                "protein": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in g"
+                },
+                "sodium": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in mg"
+                },
+                "water": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in fl oz"
+                },
+                "meal": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "The meal, as one of the following values: breakfast,lunch, dinner, snack, other, unspecified",
+                    "enum": ["breakfast", "lunch", "dinner", "snack", "other", "unspecified"]
+                }
+            }
+        },
+        "abstract.SleepSet": {
+            "parameters": {
+                "total_sleep": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in min (omitted if not available)"
+                },
+                "deep": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in min (omitted if not available)"
+                },
+                "rem": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in min (omitted if not available)"
+                },
+                "light": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in min (omitted if not available)"
+                },
+                "awake": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in min (omitted if not available)"
+                },
+                "times_woken": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity (omitted if not available)"
+                }
+            }
+        },
+        "abstract.WeightSet": {
+            "parameters": {
+                "weight": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in kg"
+                },
+                "free_mass": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in kg"
+                },
+                "fat_percent": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity"
+                },
+                "mass_weight": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity in kg"
+                },
+                "bmi": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "The value of the measured quantity"
+                }
+            }
+        }
+    }
+}

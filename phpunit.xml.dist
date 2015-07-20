@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./tests/bootstrap.php" colors="true">
+    <php>
+        <var name="client_id" value="" />
+        <var name="client_secret" value="" />
+        <var name="redirect_url" value="http://example.com" />
+        <var name="access_token" value="" />
+        <var name="token_type" value="" />
+        <var name="test_friend" value="" />
+        <var name="monolog_on" value="false" />
+        <var name="monolog_log" value="./client.log" />
+    </php>
+    <testsuites>
+        <testsuite name="HealthGraph">
+            <directory suffix="Test.php">./tests/HealthGraph</directory>
+            <exclude>./tests/HealthGraph/Tests/Integration</exclude>
+        </testsuite>
+        <testsuite name="Integration">
+            <directory suffix="Test.php">./tests/HealthGraph/Tests/Integration</directory>
+        </testsuite>
+    </testsuites>
+    <groups>
+        <exclude>
+            <group>integration</group>
+        </exclude>
+    </groups>
+    <filter>
+        <whitelist>
+            <directory>./</directory>
+            <exclude>
+                <directory>./tests</directory>
+                <directory>./docs</directory>
+                <directory>./coverage</directory>
+                <directory>./examples</directory>
+                <directory>./vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
